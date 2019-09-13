@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 m4 mx-auto">
+            <h1 class="text-info text-center">Edit Employee Data</h1>
+            <form (ngSubmit)="onSubmit(employeeForm)" [formGroup]="employeeForm">
+                
+            
+                <div class="row form-group">
+                    <label>Name:</label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="selectedEmployee.name"
+                    [value]="selectedEmployee.name"
+                    formControlName="name" required
+                    >
+                </div>
+                <div class="row form-group">
+                    <label>Office:</label>
+                    <input type="text" name="office" class="form-control" [(ngModel)]="selectedEmployee.office" formControlName="office" required>
+                </div>
+                <div class="row form-group">
+                    <label>Country:</label>
+                    <input type="text" name="country" class="form-control" [(ngModel)]="selectedEmployee.country" formControlName="country" required>
+                </div>
+                <div class="row form-group">
+                    <label>Salary:</label>
+                    <input type="text" name="salary" class="form-control" [(ngModel)]="selectedEmployee.salary" formControlName="salary" required>
+                </div>
+                <br>
+                <div class="row form-group d-flex justify-content-around">
+                    <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                    <button class="btn btn-secondary btn-lg" type="reset">Reset</button>
+                    <button class="btn btn-danger" routerLink='/'>Cancel</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

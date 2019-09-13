@@ -1,0 +1,11 @@
+.btn-edit i{
+    color: rgb(23, 189, 255);
+}
+
+.btn-delete i{
+    color: rgb(250, 87, 87);
+}
+
+a {
+    cursor: pointer;
+}

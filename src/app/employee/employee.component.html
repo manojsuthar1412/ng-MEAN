@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="row">
+         <div class="col-sm-5 m-4">
+            <h1 class="text-info text-center">Insert Employee Data</h1>
+            <form (ngSubmit)="onSubmit(employeeForm)" [formGroup]="employeeForm">
+                    <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="empService.selectedEmployee._id"> -->
+
+                <div class="row form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" formControlName="name" name="name" [(ngModel)]="selectedEmployee.name" placeholder="Enter employee name here..." required>
+                </div>
+
+                <div class="row form-group">
+                    <label>Office</label>
+                    <input type="text" class="form-control" 
+                    formControlName="office"
+                    name="office" [(ngModel)]="selectedEmployee.office" placeholder="Eg: Jaipur" required>
+                </div>
+                <div class="row form-group">
+                    <label>Country</label>
+                    <input type="text" class="form-control" 
+                    formControlName="country"
+                    name="country" [(ngModel)]="selectedEmployee.country" placeholder="Country Name..." required>
+                </div>
+                <div class="row form-group">
+                    <label>Salary</label>
+                    <input type="text" class="form-control" 
+                    formControlName="salary"
+                    name="salary" [(ngModel)]="selectedEmployee.salary" placeholder="Salary..." required>
+                </div>
+                <br>
+                <div class="row form-group d-flex justify-content-around">
+                    <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                    <button class="btn btn-secondary btn-lg" type="reset">Reset</button>
+                </div>
+            </form>
+           
+        </div> 
+
+
+        <div class="col-sm-6">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Office</th>
+                        <th>Country</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of empService.employees; index as i">
+                        <td>{{ i+1 }}</td>
+                        <td id="empName">{{ employee.name }}</td>
+                        <td>{{ employee.office }}</td>
+                        <td>{{ employee.country }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>
+                            <a class="btn btn-edit btn-sm" routerLink='/{{employee._id}}'>
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button class="btn btn-delete btn-sm" (click)="onDelete(employee._id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+  </div>
+
+</div>
+
+
